@@ -109,6 +109,7 @@ svg.material-icons:not(:last-child) {
 
 .selected {
   background-color: #1976d2;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   color: white;
   font-weight: 600;
   border: none;
@@ -129,18 +130,18 @@ svg.material-icons:not(:last-child) {
   width: 168px;
 }
 
-.card-container .card:not(.highlight-card) {
-  cursor: pointer;
-}
+//.card-container .card:not(.highlight-card) {
+//  cursor: pointer;
+//}
 
-.card-container .card:not(.highlight-card):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-}
+//.card-container .card:not(.highlight-card):hover {
+//  transform: translateY(-3px);
+//  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+//}
 
-.card-container .card:not(.highlight-card):hover .material-icons path {
-  fill: rgb(105, 103, 103);
-}
+//.card-container .card:not(.highlight-card):hover .material-icons path {
+//  fill: rgb(105, 103, 103);
+//}
 
 .card.highlight-card {
   background-color: #1976d2;
