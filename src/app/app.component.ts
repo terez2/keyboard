@@ -8,12 +8,12 @@ import {ChatService} from "./chat.service";
 })
 export class AppComponent {
 
-  buttons = [['a', 'b', 'c', 'd'], ['e', 'f', 'g', 'h'], ['i', 'j', 'k', 'l'], ['m', 'n', 'o', 'p'], ['q', 'r', 's', 't'], ['u', 'v', 'w', 'x'], ['y', 'z'], ['_', '.', '?', '!'], ['←',
+  buttons = [['A', 'B', 'C', 'D'], ['E', 'F', 'G', 'H'], ['I', 'J', 'K', 'L'], ['M', 'N', 'O', 'P'], ['Q', 'R', 'S', 'T'], ['U', 'V', 'W', 'X'], ['Y', 'Z'], ['_', '.', '?', '!'], ['←',
     //'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
   ]]
   buttonIndex: number = 0;
   selectedCharIndex?: number = undefined;
-  MAX_TIME_LEFT = 2;
+  MAX_TIME_LEFT = 1;
   timeLeft = this.MAX_TIME_LEFT;
   interval?: number;
   data = {command: 'confirm'};
@@ -25,7 +25,7 @@ export class AppComponent {
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     // this.keyEventWithTimer(event);
-    // this.keyEventWithoutTimer(event);
+    this.keyEventWithoutTimer(event);
   }
 
   constructor(private chatService: ChatService) {
@@ -48,8 +48,7 @@ export class AppComponent {
   // after time left select char
   keyEventWithTimer(event: KeyboardEvent) {
     if (this.interval) {
-      this.timeLeft = this.MAX_TIME_LEFT;
-      clearInterval(this.interval);
+      this.resetTimer();
     }
     if (event.code === 'ArrowRight') {
       this.updateDataWithTimer({command: 'next'})
@@ -66,6 +65,8 @@ export class AppComponent {
         // user wants to select this character
         const result = this.buttons[this.buttonIndex][this.selectedCharIndex];
         this.addCharacter(result)
+        // todo: next version
+        this.selectedCharIndex = undefined;
       } else {
         this.selectedCharIndex = 0;
       }
@@ -113,6 +114,9 @@ export class AppComponent {
           if (this.data.command === 'confirm' && typeof this.selectedCharIndex === 'number') {
             const result = this.buttons[this.buttonIndex][this.selectedCharIndex];
             this.addCharacter(result)
+            // todo: next version
+            // this.selectedCharIndex = undefined;
+            // this.resetTimer();
           }
           this.timeLeft = this.MAX_TIME_LEFT;
         }
@@ -127,8 +131,8 @@ export class AppComponent {
     }
     if (character === '←') {
       this.text = this.text.slice(0, this.text.length - 1);
-    } else if (character === '_') {
-      this.text += ' ';
+    // } else if (character === '_') {
+    //   this.text += '&nbsp;';
     } else {
       this.text += character;
     }
@@ -140,6 +144,11 @@ export class AppComponent {
     } else {
       this.buttonIndex = 0;
     }
+  }
+
+  private resetTimer(){
+    this.timeLeft = this.MAX_TIME_LEFT;
+    clearInterval(this.interval);
   }
 
 
