@@ -1,5 +1,5 @@
 import {Component, HostListener} from '@angular/core';
-import {ChatService} from "./chat.service";
+import {ChatService} from "./sevices/chat.service";
 
 @Component({
   selector: 'app-root',
