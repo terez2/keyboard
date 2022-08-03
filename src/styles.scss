@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+body{
+  font-family: "Poppins", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+
+.nav{
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+  background: linear-gradient(45deg, #b95ce4, #4f29cd);
+  color: white;
+  margin-bottom: 80px;
+}
+
+.box{
+  width: 500px;
+  overflow: auto;
+  padding: 30px;
+  margin: 0px auto;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.box .text-section .output{
+  min-height: 25px;
+  border-bottom: 2px solid #b95ce4;
+  overflow: auto;
+  word-break: break-all;
+}
+
+.box .key-pads{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.box .key-pads .key-pad{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-width: 70px;
+  min-height: 40px;
+  padding: 10px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  margin: 20px;
+  transition: all 0.2s ease-in-out;
+
+&--selected {
+   transform: translateY(-3px);
+   box-shadow: 0px 5px 10px rgba(185, 92, 228, 0.6);
+ }
+}
+
+.box .key-pads .key-pad .key{
+  padding: 2px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+
+&--selected {
+   transform: translateY(-3px);
+   box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+ }
+}
+
+.selected {
+  background: linear-gradient(45deg, #b95ce4, #4f29cd);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  color: white;
+  font-weight: 600;
+  margin: 2px;
+}
+
+.blinking-cursor {
+  margin-left: -5px;
+  font-size: 18px;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #b95ce4;
+  }
+}
+

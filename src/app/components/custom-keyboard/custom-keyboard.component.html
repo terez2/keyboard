@@ -1,0 +1,14 @@
+<div class="box">
+  <div class="text-section">
+    <span>Time left: {{timeLeft}}s</span>
+    <p class="output"> {{text}} <span class="blinking-cursor">|</span></p>
+  </div>
+
+  <div class="key-pads">
+    <div class="key-pad" *ngFor="let characters of buttons; let i = index"
+         [ngClass]="{'key-pad--selected': buttonIndex == i}">
+      <span class="key" *ngFor="let character of characters; let c = index"
+            [ngClass]="{'selected': buttonIndex == i && selectedCharIndex == c}">{{character.toUpperCase()}}</span>
+    </div>
+  </div>
+</div>
