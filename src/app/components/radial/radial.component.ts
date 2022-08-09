@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
 import {ChatService} from "../../sevices/chat.service";
 import {BaseKeyboardComponent} from "../base-keyboard.component";
 
@@ -10,8 +10,8 @@ import {BaseKeyboardComponent} from "../base-keyboard.component";
 })
 export class RadialComponent extends BaseKeyboardComponent {
 
-  constructor(protected chatService: ChatService) {
-    super(chatService);
+  constructor(protected chatService: ChatService, protected cd: ChangeDetectorRef) {
+    super(chatService, cd);
   }
 
 }

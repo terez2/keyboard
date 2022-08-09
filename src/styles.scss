@@ -15,7 +15,11 @@ body{
   text-align: center;
   background: linear-gradient(45deg, #b95ce4, #4f29cd);
   color: white;
-  margin-bottom: 80px;
+  margin-bottom: 30px;
+
+  &--more-space {
+    margin-bottom: 80px;
+  }
 }
 
 .box{

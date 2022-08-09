@@ -11,9 +11,4 @@ export class AppComponent {
 
   showCustomKeyboard = false;
 
-  @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    console.log(event);
-  }
-
 }

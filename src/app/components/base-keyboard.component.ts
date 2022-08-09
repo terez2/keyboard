@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {ChatService} from "../sevices/chat.service";
 
@@ -35,11 +35,13 @@ export abstract class BaseKeyboardComponent {
     this.keyEventWithoutTimer(event);
   }
 
-  protected constructor(protected chatService: ChatService) {
-    this.chatService.getMessage().pipe(untilDestroyed(this)).subscribe((data: any) => {
-      this.updateDataWithoutTimer(data);
-      // this.updateData(data);
-    })
+  protected constructor(protected chatService: ChatService, protected cd: ChangeDetectorRef) {
+      this.chatService.getMessage().pipe(untilDestroyed(this)).subscribe((data: any) => {
+        this.updateDataWithoutTimer(data);
+        // this.updateData(data);
+
+        this.cd.detectChanges()
+      })
   }
 
   // all chars in button, after it can go to next button

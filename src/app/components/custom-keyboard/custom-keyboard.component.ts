@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, HostListener, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {ChatService} from "../../sevices/chat.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {BaseKeyboardComponent} from "../base-keyboard.component";
@@ -16,8 +16,10 @@ export class CustomKeyboardComponent extends BaseKeyboardComponent {
     //'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
   ]]
 
-  constructor(protected chatService: ChatService) {
-    super(chatService);
+  buttonsCount = this.buttons.length - 1;
+
+  constructor(protected chatService: ChatService, protected cd: ChangeDetectorRef) {
+    super(chatService, cd);
   }
 
 }
