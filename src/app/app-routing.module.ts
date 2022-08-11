@@ -4,6 +4,8 @@ import {RadialComponent} from "./components/radial/radial.component";
 import {CustomKeyboardComponent} from "./components/custom-keyboard/custom-keyboard.component";
 
 const routes: Routes = [
+  { path: '', component: CustomKeyboardComponent },
+  { path: 'radial', component: RadialComponent },
 ];
 
 @NgModule({

@@ -20,7 +20,7 @@ export abstract class BaseKeyboardComponent {
 
   buttonIndex: number = 0;
   selectedCharIndex?: number = undefined;
-  MAX_TIME_LEFT = 1;
+  MAX_TIME_LEFT = 2;
   timeLeft = this.MAX_TIME_LEFT;
   interval?: number;
   data = { command: 'confirm' };
@@ -73,7 +73,6 @@ export abstract class BaseKeyboardComponent {
         // user wants to select this character
         const result = this.buttons[this.buttonIndex][this.selectedCharIndex];
         this.addCharacter(result)
-        // todo: next version
         this.selectedCharIndex = undefined;
       } else {
         this.selectedCharIndex = 0;

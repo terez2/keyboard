@@ -1,9 +1,4 @@
 <div class="nav" [ngClass]="{'nav--more-space': showCustomKeyboard}">
   <h1>Custom Keyboard</h1>
 </div>
-<!-- todo style-->
-<button (click)="showCustomKeyboard = !showCustomKeyboard">Change keyboard</button>
-<app-custom-keyboard *ngIf="showCustomKeyboard; else radial"></app-custom-keyboard>
-<ng-template #radial>
-  <app-radial></app-radial>
-</ng-template>
+<router-outlet></router-outlet>
